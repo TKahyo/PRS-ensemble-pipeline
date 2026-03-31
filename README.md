@@ -107,9 +107,6 @@ This implementation follows the formulation of PRS effectiveness as described in
 # License
 This repository is released under the MIT License.
 
-# License
-This repository is released under the MIT License.
-
 🔗 Third-party Software
 This pipeline relies on external tools:
 LVpocket
