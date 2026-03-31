@@ -66,8 +66,10 @@ umap
 
 # External Tools
 The following tools must be installed separately:
-LVpocket
-FreeSASA
+>LVpocket
+
+>FreeSASA
+
 These tools are not included in this repository and are distributed under their own licenses.
 
 # Installation
