@@ -1,4 +1,4 @@
-# ESSAflex
+# PRSflex
 A pipeline for protein structural ensemble analysis integrating:
 
 ANM-based dynamics
@@ -31,22 +31,6 @@ Automated pocket detection (LVpocket)
 Solvent accessible surface area (FreeSASA)
 Integrated analysis of dynamics and surface exposure
 Batch processing pipeline
-
-# Repository Structure
-.
-├── bash_all_analysis.sh
-
-├── 1_run_conformer.R
-
-├── 2_run_ANM.py
-
-├── 3_run_ESSA.py
-
-├── bash_lvpocket_multi.sh
-
-├── bash_freesasa_multi.sh
-
-└── README.md
 
 # Requirements
 Languages
