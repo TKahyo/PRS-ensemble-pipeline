@@ -9,6 +9,7 @@ Solvent accessibility (FreeSASA)
 This pipeline enables identification of functionally important and potentially druggable regions based on structural dynamics and residue-level perturbation response.
 
 # Overview
+[bash_analysis.sh]
 Input PDB (multi-model or multiple structures)
         ↓
 Split PDB models
@@ -23,6 +24,9 @@ Pocket detection + SASA calculation
         ↓
 Integrated analysis (PRS × surface accessibility)
 
+[run_comparing_ANM.py]
+Cross-protein ANM comparison (RCk analysis)
+
 # Features
 Structural ensemble-based analysis
 ANM (Anisotropic Network Model)
@@ -31,6 +35,7 @@ Automated pocket detection (LVpocket)
 Solvent accessible surface area (FreeSASA)
 Integrated analysis of dynamics and surface exposure
 Batch processing pipeline
+Cross-protein comparison of ANM-derived flexibility (RCk)
 
 # Requirements
 Languages
@@ -78,8 +83,6 @@ Place your PDB files in the working directory.
   - Multi-model PDB (e.g., NMR ensembles)
   - Multiple single PDB files
 
----
-
 ## 2. Prepare configuration file
 Create a configuration file (e.g., `config.sh`) specifying required paths:
 
@@ -93,7 +96,7 @@ FPOCKET_BIN=/path/to/fpocket
 ```
 ⚠️ This file is required. The pipeline will fail without it.
 
-## Run Example
+## 3. Run Example
 ```bash
 # 1. Clone repository
 git clone https://github.com/your-username/PRS-ensemble-pipeline.git
@@ -114,8 +117,29 @@ bash ../bash_all_analysis.sh config.sh
 bash ../bash_all_analysis.sh config.sh 10,88
 ```
 
+---
+## 4. Prepare ANM-derived flexibility profiles across multiple proteins
+In addition to per-structure analysis, the pipeline provides a tool for
+comparing ANM-derived flexibility profiles across multiple proteins.
+This analysis is performed using:
+>run_comparing_ANM.py
+
+Prepare a .tsv file describing multiple protein datasets:
+><name> <type> <pdb_dir e.g. out/superimposed/>
+- Example
+```
+UBL3 standalone /UBL3/out/superimposed/
+LC3B domain /LC3B/out/superimposed/
+ATG8 tandem /ATG8/out/superimposed/
+```
+
+## 5. 
+
+
+
 ## Output Structure
 ```
+- bash_analysis.sh
 out/
 ├── split_pdbs/                # split structures (multi-model input)
 ├── superimposed/              # aligned structures
@@ -128,6 +152,9 @@ out/
 ├── result_7_secondaryPRS/     # secondary structure PRS
 └── auxiliary files (aln.fa, superimp_core.pdb, ...)
 ```
+
+- run_comparing_ANM.py
+./rck_anm_profile_log2.png
 
 
 
