@@ -4,7 +4,9 @@ A pipeline for protein structural ensemble analysis integrating:
 ANM-based dynamics
 Perturbation Response Scanning (PRS) effectiveness
 Pocket detection (fpocket)
-Solvent accessibility (FreeSASA)
+Solvent accessibility (FreeSASA, fpocket-based mode)
+⚠️ Note:
+FreeSASA is executed using fpocket-detected pockets within bash_analysis.sh.
 
 This pipeline enables identification of functionally important and potentially druggable regions based on structural dynamics and residue-level perturbation response.
 
@@ -20,15 +22,18 @@ Aligned structural ensemble
         ↓
 ANM / PRS effectiveness analysis
         ↓
-Pocket detection + SASA calculation
+Pocket detection (fpocket)
         ↓
-Integrated analysis (PRS × surface accessibility)
+SASA calculation (FreeSASA)
+        ↓
+PRS × ASA integration (run_prs_sasa.py)
 
 [run_comparing_ANM.py]
 Cross-protein ANM comparison (RCk analysis)
 
 [run_prs-helix.py]
 Cross-protein secondary-structure-dependent PRS comparison
+
 
 # Features
 Structural ensemble-based analysis
@@ -44,17 +49,22 @@ Cross-protein comparison of ANM-derived flexibility (RCk)
 Languages
 Python ≥ 3.8
 R
-Python packages
-prody
-numpy
-pandas
-matplotlib
-seaborn
-R packages
-bio3d
-ggplot2
-pheatmap
-umap
+# Conda environments (required)
+The pipeline assumes the following environments:
+- ensembleflex  : main analysis (ProDy, pandas, etc.)
+- freesasa      : FreeSASA + fpocket execution
+
+Python packages:
+- prody
+- numpy
+- pandas
+- matplotlib
+- seaborn
+- R packages
+- bio3d
+- ggplot2
+- pheatmap
+- umap
 
 # External Tools
 The following tools must be installed separately:
@@ -119,6 +129,12 @@ bash ../bash_analysis.sh config.sh
 # Optional: with residue range
 bash ../bash_analysis.sh config.sh 10,88
 ```
+Optional argument:
+- residue range (e.g., 10,88)
+
+⚠️ This argument is NOT used in the main pipeline.
+It is intended for secondary PRS analysis
+(7_run_secondary_prs.py), which must be run separately.
 
 ---
 
@@ -144,6 +160,7 @@ python run_comparing_ANM.py <list_tsv> <output_dir> [--kmax K] [--modes N]
 - <output_dir>           Output directory (e.g. './')
 - `--kmax 10` (default)  RCk evaluated for k = 1–10 residues from the C-terminus
 - `--modes 20` (default) Based on low-frequency ANM modes representing collective motions
+```
 
 ---
 
@@ -237,8 +254,9 @@ Pocket and surface accessibility are integrated to identify functional regions
 
 This implementation follows the formulation of PRS effectiveness as described in the associated manuscript.
 
-ANM cutoff distance: 15 Å (ProDy default)
-Number of modes: 20
+ANM parameters:
+- cutoff distance: 15 Å (ProDy default)
+- number of modes: 20
 
 # License
 This repository is released under the MIT License.
