@@ -115,53 +115,20 @@ bash ../bash_all_analysis.sh config.sh 10,88
 ```
 
 ## Output Structure
-After running the pipeline, results are generated in the `out/` directory:
 ```
 out/
-├── split_pdbs/                 # (only for multi-model input)
-│
-├── superimposed/               # aligned structures
-│   └── *.pdb
-│
-├── result_1_conformer/         # conformer-level analysis (R)
-│   ├── RMSD / PCA / UMAP / RMSF outputs
-│   ├── *.csv
-│   └── *.png
-│
-├── result_2_ANM/               # ANM-based fluctuation analysis
-│   ├── anm_rmsf_*.tsv
-│   ├── heatmaps
-│   └── barplots
-│
-├── result_3_PRS/               # PRS analysis
-│   ├── PRS_per_conformer.tsv
-│   ├── PRS_mean.tsv
-│   ├── PRS_heatmap_*.png
-│   ├── PRS_mean_barplot.png
-│   └── PRS_color.pml
-│
-├── result_4_fpockets/          # pocket detection (fpocket)
-│   └── <pdb>_out/
-│       └── pockets/
-│           └── *_vert.pqr
-│
-├── result_5_freesasa.tsv       # SASA per residue (pocket-contact residues)
-│
-├── result_6_prsasa/            # PRS × SASA integrated analysis
-│   ├── PRS_vs_ASA.png
-│   ├── PRS_ASA_values.tsv
-│   ├── ESSA_pocket_groups.tsv
-│   └── ESSA_pocket_groups_boxplot.png
-│
-├── result_7_secondaryPRS/      # secondary structure-based PRS analysis
-│   ├── secondary_prs_mean_and_ratio_all.tsv
-│   ├── secondary_prs_residuelevel_all.tsv
-│   ├── secondary_prs_mean_aa_boxplot_all.png
-│   ├── secondary_prs_ratio_prs_boxplot_all.png
-│   └── secondary_prs_residuelevel_boxplot_all.png
-│
-└── (additional integrated outputs)
+├── split_pdbs/                # split structures (multi-model input)
+├── superimposed/              # aligned structures
+├── result_1_conformer/        # RMSD / PCA / UMAP / RMSF
+├── result_2_ANM/              # ANM fluctuation analysis
+├── result_3_PRS/              # PRS analysis
+├── result_4_fpockets/         # pocket detection
+├── result_5_freesasa.tsv      # solvent accessibility
+├── result_6_prsasa/           # PRS × ASA integration
+├── result_7_secondaryPRS/     # secondary structure PRS
+└── auxiliary files (aln.fa, superimp_core.pdb, ...)
 ```
+
 
 
 # Methodological Notes
