@@ -3,7 +3,7 @@ A pipeline for protein structural ensemble analysis integrating:
 
 ANM-based dynamics
 Perturbation Response Scanning (PRS) effectiveness
-Pocket detection (LVpocket)
+Pocket detection (fpocket)
 Solvent accessibility (FreeSASA)
 
 This pipeline enables identification of functionally important and potentially druggable regions based on structural dynamics and residue-level perturbation response.
@@ -34,7 +34,7 @@ Cross-protein secondary-structure-dependent PRS comparison
 Structural ensemble-based analysis
 ANM (Anisotropic Network Model)
 PRS effectiveness (residue-level dynamic influence)
-Automated pocket detection (LVpocket)
+Automated pocket detection (fpocket)
 Solvent accessible surface area (FreeSASA)
 Integrated analysis of dynamics and surface exposure
 Batch processing pipeline
@@ -58,7 +58,7 @@ umap
 
 # External Tools
 The following tools must be installed separately:
->LVpocket
+>fpocket
 
 >FreeSASA
 
@@ -114,10 +114,10 @@ cp /path/to/your/*.pdb .
 nano config.sh
 
 # 4. Run pipeline
-bash ../bash_all_analysis.sh config.sh
+bash ../bash_analysis.sh config.sh
 
 # Optional: with residue range
-bash ../bash_all_analysis.sh config.sh 10,88
+bash ../bash_analysis.sh config.sh 10,88
 ```
 
 ---
@@ -180,7 +180,7 @@ A helper script is provided to generate a linear secondary structure diagram fro
 This is useful for Visualizing helix/sheet distribution
 >run_structure_png.py
 
-## 9. Run Command for run_prs-helix.py
+## 9. Run Command for run_structure_png.py
 ```
 python run_structure_png.py <input.pdb> <output.png> [chainID]
 ```
@@ -237,12 +237,15 @@ Pocket and surface accessibility are integrated to identify functional regions
 
 This implementation follows the formulation of PRS effectiveness as described in the associated manuscript.
 
+ANM cutoff distance: 15 Å (ProDy default)
+Number of modes: 20
+
 # License
 This repository is released under the MIT License.
 
 🔗 Third-party Software
 This pipeline relies on external tools:
-LVpocket
+fpocket
 FreeSASA
 ProDy
 These tools are distributed under their own respective licenses.
