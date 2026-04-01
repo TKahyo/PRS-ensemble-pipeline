@@ -160,7 +160,6 @@ python run_comparing_ANM.py <list_tsv> <output_dir> [--kmax K] [--modes N]
 - <output_dir>           Output directory (e.g. './')
 - `--kmax 10` (default)  RCk evaluated for k = 1–10 residues from the C-terminus
 - `--modes 20` (default) Based on low-frequency ANM modes representing collective motions
-```
 
 ---
 
