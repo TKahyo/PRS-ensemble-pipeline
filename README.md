@@ -1,4 +1,4 @@
-# PRSflex
+# PRS-ensemble-pipeline
 A pipeline for protein structural ensemble analysis integrating:
 
 ANM-based dynamics
@@ -67,7 +67,9 @@ Install Python dependencies:
 pip install prody numpy pandas matplotlib seaborn
 ```
 Install R packages:
+```bash
 install.packages(c("bio3d","ggplot2","pheatmap","umap"))
+```
 
 # Usage
 ## 1. Prepare input files
@@ -91,24 +93,6 @@ export FPOCKET_BIN=/path/to/fpocket
 ```
 ⚠️ This file is required. The pipeline will fail without it.
 
-# Output
-Results are generated in:
-out/
-
-Including:
-
-RMSD / PCA / RMSF analyses
-
-ANM-derived fluctuations
-
-PRS effectiveness scores
-
-Pocket detection results
-
-SASA calculations
-
-Integrated PRS × SA outputs
-
 ## Run Example
 ```bash
 # 1. Clone repository
@@ -129,6 +113,25 @@ bash ../bash_all_analysis.sh config.sh
 # Optional: with residue range
 bash ../bash_all_analysis.sh config.sh 10,88
 ```
+
+# Output
+Results are generated in:
+out/
+
+Including:
+
+RMSD / PCA / RMSF analyses
+
+ANM-derived fluctuations
+
+PRS effectiveness scores
+
+Pocket detection results
+
+SASA calculations
+
+Integrated PRS × SA outputs
+
 
 # Methodological Notes
 All structures are aligned prior to analysis
