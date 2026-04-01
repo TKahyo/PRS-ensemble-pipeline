@@ -27,6 +27,9 @@ Integrated analysis (PRS × surface accessibility)
 [run_comparing_ANM.py]
 Cross-protein ANM comparison (RCk analysis)
 
+[run_prs-helix.py]
+Cross-protein secondary-structure-dependent PRS comparison
+
 # Features
 Structural ensemble-based analysis
 ANM (Anisotropic Network Model)
@@ -96,7 +99,7 @@ FPOCKET_BIN=/path/to/fpocket
 ```
 ⚠️ This file is required. The pipeline will fail without it.
 
-## 3. Run Example
+## 3. Run Example for bash_analysis.sh
 ```bash
 # 1. Clone repository
 git clone https://github.com/your-username/PRS-ensemble-pipeline.git
@@ -133,14 +136,14 @@ LC3B domain /LC3B/out/superimposed/
 ATG8 tandem /ATG8/out/superimposed/
 ```
 
-## 5. Run Command
+## 5. Run Command for run_comparing_ANM.py
 ```
 python run_comparing_ANM.py <list_tsv> <output_dir> [--kmax K] [--modes N]
 ```
-- `--kmax 10` (default)
-  - RCk evaluated for k = 1–10 residues from the C-terminus
-- `--modes 20` (default)
-  - Based on low-frequency ANM modes representing collective motions
+- <list_tsv>             .tsv file describing multiple protein datasets
+- <output_dir>           Output directory (e.g. './')
+- `--kmax 10` (default)  RCk evaluated for k = 1–10 residues from the C-terminus
+- `--modes 20` (default) Based on low-frequency ANM modes representing collective motions
 
 ---
 
@@ -163,10 +166,29 @@ and must contain the following columns:
 - Helix_ratio_prs
 - Sheet_ratio_prs
 
-## 7. Run Command
+## 7. Run Command for run_prs-helix.py
 ```
 python run_prs-helix.py <list_tsv> <output_dir>
 ```
+- <list_tsv>        .tsv file describing datasets
+- <output_dir>      Output directory (e.g. './')
+
+---
+
+## 8. Utility: Secondary structure visualization
+A helper script is provided to generate a linear secondary structure diagram from a PDB file.
+This is useful for Visualizing helix/sheet distribution
+>run_structure_png.py
+
+## 9. Run Command for run_prs-helix.py
+```
+python run_structure_png.py <input.pdb> <output.png> [chainID]
+```
+- <input.pdb>	Input PDB structure
+- <output.png>	Output image file
+- [chainID]	(Optional) Specify chain ID
+
+---
 
 ## Output Structure
 - bash_analysis.sh
@@ -200,6 +222,11 @@ result_prs_helix/
 ├── helix_vs_sheet_mean_points.tsv
 ├── helix_vs_sheet_mean_fraction_points.tsv
 └── helix_over_sheet_mean_fraction_sorted.png
+```
+
+- run_structure_png.py
+```
+./*.png
 ```
 
 # Methodological Notes
