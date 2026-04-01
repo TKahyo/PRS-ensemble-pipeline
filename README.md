@@ -166,6 +166,7 @@ python run_comparing_ANM.py <list_tsv> <output_dir> [--kmax K] [--modes N]
 
 ## 6. Secondary structure PRS comparison (Helix vs Sheet)
 This pipeline also provides a tool to summarize and compare secondary-structure-dependent PRS signals across multiple proteins.
+This pipeline is designed to be executed via bash_analysis.sh.
 This analysis is performed using:
 >run_prs-helix.py
 
