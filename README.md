@@ -137,7 +137,10 @@ ATG8 tandem /ATG8/out/superimposed/
 ```
 python run_comparing_ANM.py <list_tsv> <output_dir> [--kmax K] [--modes N]
 ```
-
+- `--kmax 10` (default)
+  - RCk evaluated for k = 1–10 residues from the C-terminus
+- `--modes 20` (default)
+  - Based on low-frequency ANM modes representing collective motions
 
 ---
 
@@ -166,8 +169,8 @@ python run_prs-helix.py <list_tsv> <output_dir>
 ```
 
 ## Output Structure
-```
 - bash_analysis.sh
+```
 out/
 ├── split_pdbs/                # split structures (multi-model input)
 ├── superimposed/              # aligned structures
@@ -189,6 +192,7 @@ result_comparing_ANM/
 ```
 
 - run_prs-helix.py
+```
 result_prs_helix/
 ├── protein_secondary_summary.tsv
 ├── helix_vs_sheet_mean.png
@@ -196,8 +200,7 @@ result_prs_helix/
 ├── helix_vs_sheet_mean_points.tsv
 ├── helix_vs_sheet_mean_fraction_points.tsv
 └── helix_over_sheet_mean_fraction_sorted.png
-
-
+```
 
 # Methodological Notes
 All structures are aligned prior to analysis
