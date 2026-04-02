@@ -8,8 +8,8 @@ A pipeline for protein structural ensemble analysis integrating:
 - Solvent accessibility (FreeSASA; fpocket-based mode)  
 
 > **Note**  
-> FreeSASA calculation is implemented directly within `bash_analysis.sh`  
-> using fpocket-derived pocket coordinates via `5a_run_freesasa.py`.
+> FreeSASA calculation is executed via `5a_run_freesasa.py`
+within the pipeline.
 
 This pipeline enables identification of functionally important and potentially druggable regions based on structural dynamics and residue-level perturbation response.
 
@@ -39,6 +39,9 @@ Cross-protein ANM comparison (RCk analysis)
 
 [run_prs-helix.py]
 Cross-protein secondary-structure-dependent PRS comparison
+
+[run_structure_png.py]
+Secondary structure visualization
 ```
 
 ## Features
@@ -49,7 +52,8 @@ Cross-protein secondary-structure-dependent PRS comparison
 - Solvent accessible surface area (FreeSASA)
 - Integrated analysis of dynamics and surface exposure
 - Batch processing pipeline
-- Cross-protein comparison of ANM-derived flexibility (RCk)
+- Cross-protein ANM comparison (RCk analysis)
+- Cross-protein secondary-structure-dependent PRS comparison
 
 ## Requirements
 - Languages
@@ -140,8 +144,8 @@ bash ../bash_analysis.sh config.sh 10,88
 Optional argument:
 - residue range (e.g., 10,88)
 
-⚠️ This argument is used ONLY to secondary PRS analysis
-(7_run_secondary_prs.py), which must be run separately.
+⚠️ The optional residue range is used in the secondary PRS step
+executed within the pipeline.
 
 ---
 
