@@ -5,7 +5,8 @@ ANM-based dynamics
 Perturbation Response Scanning (PRS) effectiveness
 Pocket detection (fpocket)
 Solvent accessibility (FreeSASA, fpocket-based mode)
-⚠️ Note:
+
+- Note:
 FreeSASA is executed using fpocket-detected pockets within bash_analysis.sh.
 
 This pipeline enables identification of functionally important and potentially druggable regions based on structural dynamics and residue-level perturbation response.
