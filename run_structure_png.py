@@ -19,7 +19,7 @@ def run_dssp(pdb_file, chain_id=None):
     structure = parser.get_structure("protein", pdb_file)
     model = structure[0]
 
-    dssp = DSSP(model, pdb_file)
+    dssp = DSSP(model, pdb_file, dssp="mkdssp")
 
     ss_map = {}
 

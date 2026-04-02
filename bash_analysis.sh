@@ -15,6 +15,7 @@ shift
 : "${N_JOBS:=1}"
 
 # Load conda
+# adjust this line depending on your conda installation
 source ~/anaconda3/etc/profile.d/conda.sh
 
 # Optional argument (residue range for secondary PRS)

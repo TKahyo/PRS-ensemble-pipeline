@@ -1,0 +1,26 @@
+name: ensembleflex
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - r-bio3d
+  - r-ggplot2
+  - bioconductor-msa
+  - r-cluster
+  - scipy
+  - r-biocmanager
+  - r-dplyr
+  - python=3.11
+  - biopython
+  - prody
+  - r-umap
+  - matplotlib
+  - r-base
+  - r-pheatmap
+  - pip
+  - r-optparse
+  - numpy
+  - seaborn
+  - scikit-learn
+  - dssp
