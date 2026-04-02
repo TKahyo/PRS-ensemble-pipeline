@@ -12,6 +12,7 @@ FreeSASA is executed using fpocket-detected pockets within bash_analysis.sh.
 This pipeline enables identification of functionally important and potentially druggable regions based on structural dynamics and residue-level perturbation response.
 
 # Overview
+```text
 [bash_analysis.sh]
 Input PDB (multi-model or multiple structures)
         ↓
@@ -34,22 +35,23 @@ Cross-protein ANM comparison (RCk analysis)
 
 [run_prs-helix.py]
 Cross-protein secondary-structure-dependent PRS comparison
-
+```
 
 # Features
-Structural ensemble-based analysis
-ANM (Anisotropic Network Model)
-PRS effectiveness (residue-level dynamic influence)
-Automated pocket detection (fpocket)
-Solvent accessible surface area (FreeSASA)
-Integrated analysis of dynamics and surface exposure
-Batch processing pipeline
-Cross-protein comparison of ANM-derived flexibility (RCk)
+- Structural ensemble-based analysis
+- ANM (Anisotropic Network Model)
+- PRS effectiveness (residue-level dynamic influence)
+- Automated pocket detection (fpocket)
+- Solvent accessible surface area (FreeSASA)
+- Integrated analysis of dynamics and surface exposure
+- Batch processing pipeline
+- Cross-protein comparison of ANM-derived flexibility (RCk)
 
 # Requirements
-Languages
-Python ≥ 3.8
-R
+- Languages
+- Python ≥ 3.8
+- R
+
 # Conda environments (required)
 The pipeline assumes the following environments:
 - ensembleflex  : main analysis (ProDy, pandas, etc.)
@@ -110,6 +112,9 @@ FPOCKET_BIN=/path/to/fpocket
 
 # main_analysis/
 MAIN_ANALYSIS_DIR="/path/to/main_analysis"
+
+# parallel settings
+N_JOBS=10
 ```
 ⚠️ This file is required. The pipeline will fail without it.
 
@@ -171,10 +176,10 @@ python run_comparing_ANM.py <list_tsv> <output_dir> [--kmax K] [--modes N]
 This pipeline also provides a tool to summarize and compare secondary-structure-dependent PRS signals across multiple proteins.
 This pipeline is designed to be executed via bash_analysis.sh.
 This analysis is performed using:
->run_prs-helix.py
+- run_prs-helix.py
 
 Prepare a .tsv file describing datasets:
-><label> <type> <path_to_secondary_prs_tsv>
+- <label> <type> <path_to_secondary_prs_tsv>
 ```
 UBL3 standalone ./UBL3/out/result_7_secondaryPRS/secondary_prs_mean_and_ratio_all.tsv
 LC3B domain ./LC3B/out/result_7_secondaryPRS/secondary_prs_mean_and_ratio_all.tsv
@@ -199,7 +204,7 @@ python run_prs-helix.py <list_tsv> <output_dir>
 ## 8. Utility: Secondary structure visualization
 A helper script is provided to generate a linear secondary structure diagram from a PDB file.
 This is useful for Visualizing helix/sheet distribution
->run_structure_png.py
+- run_structure_png.py
 
 ## 9. Run Command for run_structure_png.py
 ```
