@@ -138,7 +138,7 @@ It is intended for secondary PRS analysis
 
 ---
 
-## 4. Prepare ANM-derived flexibility profiles across multiple proteins
+## 4. ANM-derived flexibility profiles across multiple proteins
 In addition to per-structure analysis, the pipeline provides a tool for
 comparing ANM-derived flexibility profiles across multiple proteins.
 This analysis is performed using:
