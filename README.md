@@ -39,9 +39,6 @@ Cross-protein ANM comparison (RCk analysis)
 
 [run_prs-helix.py]
 Cross-protein secondary-structure-dependent PRS comparison
-
-[run_structure_png.py]
-Secondary structure visualization
 ```
 
 ## Features
@@ -201,20 +198,6 @@ python run_prs-helix.py <list_tsv> <output_dir>
 
 ---
 
-### 3. Utility: Secondary structure visualization
-A helper script is provided to generate a linear secondary structure diagram from a PDB file.
-This is useful for Visualizing helix/sheet distribution
-- run_structure_png.py
-
-```
-python run_structure_png.py <input.pdb> <output.png> [chainID]
-```
-- <input.pdb>	Input PDB structure
-- <output.png>	Output image file
-- [chainID]	(Optional) Specify chain ID
-
----
-
 ## Output Structure
 - bash_analysis.sh
 ```
@@ -247,12 +230,6 @@ out/
 ├── helix_vs_sheet_mean_points.tsv
 ├── helix_vs_sheet_mean_fraction_points.tsv
 └── helix_over_sheet_mean_fraction_sorted.png
-```
-
-- run_structure_png.py
-```
-<output_dir>
-└── *.png
 ```
 
 # Methodological Notes
