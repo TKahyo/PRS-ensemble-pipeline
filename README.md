@@ -233,14 +233,14 @@ out/
 
 - run_comparing_ANM.py
 ```
-result_comparing_ANM/
+<output_dir>
 ├── rck_anm_table.tsv
 └── rck_plot.png
 ```
 
 - run_prs-helix.py
 ```
-result_prs_helix/
+<output_dir>
 ├── protein_secondary_summary.tsv
 ├── helix_vs_sheet_mean.png
 ├── helix_vs_sheet_mean_fraction.png
@@ -251,7 +251,8 @@ result_prs_helix/
 
 - run_structure_png.py
 ```
-./*.png
+<output_dir>
+└── *.png
 ```
 
 # Methodological Notes
